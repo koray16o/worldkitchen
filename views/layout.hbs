@@ -1,0 +1,30 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <title>{{appTitle}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    {{#if currentUser}}
+      <p>Welcome {{currentUser.username}}!</p>
+      <a href='/books/create'>Create Book</a>
+      <form action='/logout' method='POST'>
+        <button type='submit'>Logout</button>
+      </form>
+    {{/if}}
+
+    <a href='/'>Home</a>
+    <a href='/books'>All Books</a>
+    <a href='/signup'>Signup</a>
+    <a href='/login'>Login</a>
+
+    {{{body}}}
+
+    <script src='/js/script.js'></script>
+  </body>
+
+</html>
