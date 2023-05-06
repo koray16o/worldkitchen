@@ -5,6 +5,9 @@ require('dotenv').config();
 // ℹ️ Connects to the database
 require('./db');
 
+const MONGO_URI =
+  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/world-kitchen';
+
 // Handles http requests (express is node js framework)
 // https://www.npmjs.com/package/express
 const express = require('express');
@@ -37,7 +40,7 @@ app.use(
     },
     rolling: true,
     store: new mongoStore({
-      mongoUrl: process.env.MONGODB_URI,
+      mongoUrl: MONGO_URI,
       ttl: 60 * 60 * 24 //We will store the users data (cookie) 1 day in the database
     })
   })
