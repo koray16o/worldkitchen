@@ -11,14 +11,14 @@
   <body>
     {{#if currentUser}}
       <p>Welcome {{currentUser.username}}!</p>
-      <a href='/books/create'>Create Book</a>
+      <a href='/recipes/create'>Create Recipe</a>
       <form action='/logout' method='POST'>
         <button type='submit'>Logout</button>
       </form>
     {{/if}}
 
     <a href='/'>Home</a>
-    <a href='/books'>All Books</a>
+    <a href='/recipes'>All Recipes</a>
     <a href='/signup'>Signup</a>
     <a href='/login'>Login</a>
 

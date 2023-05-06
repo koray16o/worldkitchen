@@ -76,7 +76,7 @@ const books = [
 
 mongoose
   .connect(
-    'mongodb+srv://koray:NereidaAdmin@iron+hack.o3f1den.mongodb.net/library-project'
+    'mongodb+srv://koray:NereidaAdmin@iron+hack.o3f1den.mongodb.net/worldkitchen'
   )
   .then(x => {
     const databaseName = x.connections[0].name;

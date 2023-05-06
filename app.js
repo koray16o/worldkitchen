@@ -33,7 +33,7 @@ app.use(
     cookie: {
       sameSite: true, //front end and backend are running on localhost 3000 so it is true
       httpOnly: true, //we are not using https
-      maxAge: 60000 //Session time in miliseconds (here is 1 min)
+      maxAge: 3600000 //Session time in miliseconds (here is 1 min)
     },
     rolling: true,
     store: new mongoStore({
@@ -57,7 +57,7 @@ app.use(getCurrentLoggedUser);
 
 // default value for title local
 const capitalize = require('./utils/capitalize');
-const projectName = 'library-project';
+const projectName = 'worldkitchen';
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`; //If you change the name here, it will also change on thw web
 
@@ -65,8 +65,8 @@ app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`; //
 const indexRoutes = require('./routes/index.routes');
 app.use('/', indexRoutes);
 
-const bookRoutes = require('./routes/book.routes');
-app.use('/', bookRoutes);
+const recipeRoutes = require('./routes/recipe.routes');
+app.use('/', recipeRoutes);
 
 const authRoutes = require('./routes/auth.routes');
 app.use('/', authRoutes);
