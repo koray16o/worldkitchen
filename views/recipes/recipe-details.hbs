@@ -1,10 +1,12 @@
 <h1>{{title}}</h1>
 <hr />
-<p>Written by: {{author.name}}</p>
-<p>Summary: {{description}}</p>
-<p>Rating: {{rating}}</p>
-<a href='/books/{{id}}/edit'>Edit this book</a>
-<form action='/books/delete/{{id}}' method='POST'>
+<p>Country: {{author.name}}</p>
+<p>Ingredients: {{ingredients}}</p>
+<p>Dificulty: {{dificulty}}</p>
+<p>Preparation Time: {{preparationTime}}</p>
+<p>Description: {{description}}</p>
+<a href='/recipes/{{id}}/edit'>Edit this Recipe</a>
+<form action='/recipes/delete/{{id}}' method='POST'>
   <button>Delete</button>
 </form>
 
@@ -12,18 +14,18 @@
   <img src='{{imageUrl}}' />
 {{/if}}
 <hr />
-<a href='/books'>Back</a>
+<a href='/recipes'>Back</a>
 
-<h2>Reviews</h2>
+<h2>Comments</h2>
 
-{{#each reviews}}
+{{#each comment}}
 
   <p><span> User: {{user}}</span> -- Comment: {{comment}}</p>
 
 {{/each}}
 
 <h2>Add a Review</h2>
-<form action='/reviews/add/{{id}}' method='POST'>
+<form action='/comments/add/{{id}}' method='POST'>
   <label for=''>User:</label>
   <input type='text' name='user' />
   <label for=''>Comment</label>

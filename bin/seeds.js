@@ -78,7 +78,9 @@ const MONGO_URI =
   process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/world-kitchen';
 
 mongoose
-  .connect(MONGO_URI)
+  .connect(
+    'mongodb+srv://koray:NereidaAdmin@iron+hack.o3f1den.mongodb.net/worldkitchen'
+  )
   .then(x => {
     const databaseName = x.connections[0].name;
     console.log(`Connected to Mongo! Database name: "${databaseName}"`);

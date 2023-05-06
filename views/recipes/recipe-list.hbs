@@ -1,0 +1,14 @@
+<h1>All Recipes</h1>
+
+{{#each recipes}}
+  <div>
+    <h3>
+      <a href='/recipes/{{id}}'>{{title}}</a>
+    </h3>
+    <p>
+      From:
+      {{region.country}}
+    </p>
+  </div>
+
+{{/each}}

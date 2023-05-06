@@ -1,0 +1,26 @@
+<h2>Editing {{recipe.title}}</h2>
+<form action='/recipes/edit?id={{recipe.id}}' method='POST'>
+
+  <label for=''>Title</label>
+  <input type='text' name='title' value='{{recipe.title}}' />
+
+  <label for=''>Country</label>
+  <input type='text' name='country' />
+
+  <label for=''>Ingredients</label>
+  <input type='text' name='ingredients' />
+
+  <label for=''>Dificulty</label>
+  <input type='number' name='dificulty' min='1' max='5' />
+
+  <label for=''>Preparation Time</label>
+  <input type='text' name='preparationTime' />
+
+  <label for=''>Image</label>
+  <input type='image' name='image' />
+
+  <label for=''>Description</label>
+  <input type='text' name='description' />
+
+  <button type='submit'>Update</button>
+</form>

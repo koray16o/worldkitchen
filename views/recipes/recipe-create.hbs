@@ -1,0 +1,25 @@
+<h1>Create new recipe</h1>
+<form action='/recipes/create' method='POST' enctype='multipart/form-data'>
+  <label for=''>Title</label>
+  <input type='text' name='title' />
+
+  <label for=''>Country</label>
+  <input type='text' name='country' />
+
+  <label for=''>Ingredients</label>
+  <input type='text' name='ingredients' />
+
+  <label for=''>Dificulty</label>
+  <input type='number' name='dificulty' min='1' max='5' />
+
+  <label for=''>Preparation Time</label>
+  <input type='text' name='preparationTime' />
+
+  <label for=''>Image</label>
+  <input type='file' name='image' />
+
+  <label for=''>Description</label>
+  <input type='text' name='description' />
+
+  <button type='submit'>Create</button>
+</form>
