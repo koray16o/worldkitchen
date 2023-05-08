@@ -7,7 +7,8 @@ const recipeSchema = new Schema(
     dificulty: Number,
     preparationTime: String,
     imageUrl: String,
-    description: String
+    description: String,
+    region: { type: Schema.Types.ObjectId, ref: 'Region' }
   },
   {
     timestamps: true

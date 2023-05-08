@@ -18,7 +18,7 @@ router.get('/recipes', async (req, res) => {
   res.render('recipes/recipe-list', { recipes: recipesFromDB });
 });
 
-router.get('/recipes/create', requireLogin, async (req, res) => {
+router.get('/recipes/create', async (req, res) => {
   const region = await Region.find();
   res.render('recipes/recipe-create', { region });
 });
@@ -44,13 +44,17 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
   if (req.file) {
     fileUrlOnCloudinary = req.file.path;
   }
+
+  const regionDB = await Region.findById(region);
+
   const {
     title,
     country,
     ingredients,
     dificulty,
     preparationTime,
-    description
+    description,
+    region
   } = req.body;
   await Recipe.create({
     title,
@@ -59,9 +63,10 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
     dificulty,
     preparationTime,
     imageUrl: fileUrlOnCloudinary,
-    description
+    description,
+    region
   });
-  res.redirect('/recipes');
+  res.redirect(`/regions/${regionDB.name}`);
 });
 
 router.post('/recipes/edit', async (req, res) => {

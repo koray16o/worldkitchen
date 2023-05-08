@@ -10,8 +10,21 @@ body {
 .carousel-item {
   height: 600px;
 }
-.col-script {
-  font-family: 'Shadows Into Light', cursive;
+.col-script,
+.form-group,
+.create,
+.create-button,
+.africa,
+.asia,
+.europe,
+.northAmerica,
+.southAmerica {
+  font-family: 'Shadows Into Light';
+}
+
+.create-button {
+  font-family: 'Shadows Into Light';
+  margin-top: 20px;
 }
 
 .nav-item-logout {

@@ -1,25 +1,62 @@
-<h1>Create new recipe</h1>
-<form action='/recipes/create' method='POST' enctype='multipart/form-data'>
-  <label for=''>Title</label>
-  <input type='text' name='title' />
+<h1 class='create'>Create new recipe</h1>
+<form>
+  <div class='form-group'>
+    <label for='exampleFormControlInput1'>Title</label>
+    <input
+      type='text'
+      name='title'
+      class='form-control'
+      id='exampleFormControlInput1'
+    />
+  </div>
 
-  <label for=''>Country</label>
-  <input type='text' name='country' />
+  <div class='form-group'>
+    <label for='exampleFormControlSelect1'>Region</label>
+    <select name='region' class='form-control' id='exampleFormControlSelect1'>
+      {{#each region}}
+        <option value={{id}}>{{name}}</option>
+      {{/each}}
 
-  <label for=''>Ingredients</label>
-  <input type='text' name='ingredients' />
+    </select>
+  </div>
+  <div class='form-group'>
+    <label for='exampleFormControlInput1'>Country</label>
+    <input type='text' class='form-control' id='exampleFormControlInput1' />
+  </div>
 
-  <label for=''>Dificulty</label>
-  <input type='number' name='dificulty' min='1' max='5' />
-
-  <label for=''>Preparation Time</label>
-  <input type='text' name='preparationTime' />
-
-  <label for=''>Image</label>
-  <input type='file' name='image' />
-
-  <label for=''>Description</label>
-  <input type='text' name='description' />
-
-  <button type='submit'>Create</button>
+  <div class='form-group'>
+    <label for='exampleFormControlTextarea1'>Ingredients</label>
+    <textarea
+      class='form-control'
+      id='exampleFormControlTextarea1'
+      rows='2'
+    ></textarea>
+  </div><div class='form-group'>
+    <label for='exampleFormControlSelect1'>Difficulty level</label>
+    <select class='form-control' id='exampleFormControlSelect1'>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class='form-group'>
+    <label for='exampleFormControlInput1'>Preparation time</label>
+    <input type='text' class='form-control' id='exampleFormControlInput1' />
+  </div>
+  <div class='form-group'>
+    <label for='exampleFormControlInput1'>Image</label>
+    <input type='file' class='form-control' id='exampleFormControlInput1' />
+  </div>
+  <div class='form-group'>
+    <label for='exampleFormControlTextarea1'>Cooking instructions</label>
+    <textarea
+      class='form-control'
+      id='exampleFormControlTextarea1'
+      rows='3'
+    ></textarea>
+  </div>
+  <div class='create-button'>
+    <button type='submit'>Create</button></div>
 </form>
