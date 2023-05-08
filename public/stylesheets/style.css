@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Meie+Script|Shadows+Into+Light|Arvo|Monda');
+
 body {
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+.nav-item-title {
+  font: 20px 'Comic Sans MS';
+  padding-left: 140px;
+}
+.carousel-item {
+  height: 600px;
+}
+.col-script {
+  font-family: 'Shadows Into Light', cursive;
 }
