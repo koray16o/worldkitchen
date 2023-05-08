@@ -55,17 +55,34 @@
               </ul>
             </li>
             <li class='nav-item'>
-              <a class='nav-link active' aria-current='page' href='#'>All
+              <a class='nav-link active' aria-current='page' href='/recipes'>All
                 Recipes</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link active' aria-current='page' href='#'>Sign up</a>
+              <a class='nav-link active' aria-current='page' href='/signup'>Sign
+                up</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link active' aria-current='page' href='#'>Login</a>
+              <a
+                class='nav-link active'
+                aria-current='page'
+                href='/login'
+              >Login</a>
             </li>
             <li class='nav-item-title'>
               <a class='nav-link disabled'>WORLD KITCHEN</a>
+            </li>
+            {{!-- <li>
+              {{#if currentUser}}
+                <p>Welcome {{currentUser.username}}!</p>
+              {{/if}}
+            </li> --}}
+            <li class='nav-item-logout'>
+              {{#if currentUser}}
+                <form action='/logout' method='POST'>
+                  <button type='submit' id='logout'>Log out</button>
+                </form>
+              {{/if}}
             </li>
           </ul>
           <form class='d-flex' role='search'>
@@ -83,13 +100,13 @@
       </div>
     </nav>
 
-    {{#if currentUser}}
+    {{!-- {{#if currentUser}}
       <p>Welcome {{currentUser.username}}!</p>
       <a href='/recipes/create'>Create Recipe</a>
       <form action='/logout' method='POST'>
         <button type='submit'>Logout</button>
       </form>
-    {{/if}}
+    {{/if}} --}}
 
     <div class='container'>
       {{{body}}}

@@ -1,6 +1,78 @@
-<h1>All Recipes</h1>
+<h1 class='region-title'>All Recipes Regions</h1>
 
-{{#each recipes}}
+<div class='region-cards'>
+  <div class='card' style='width: 18rem;' id='europe-card'>
+    <img
+      src='/images/Europe.jpg'
+      class='card-img-top'
+      alt='Europe Image'
+      id='europe-image'
+    />
+    <div class='card-body'>
+      <h5 class='card-title'>Europe</h5>
+      <p class='card-text'>Check out some of the best recipes of Europe!</p>
+      <a href='/regions/europe' class='btn btn-primary'>Europe</a>
+    </div>
+  </div>
+
+  <div class='card' style='width: 18rem;' id='asia-card'>
+    <img
+      src='/images/Asia.jpg'
+      class='card-img-top'
+      alt='Asia Image'
+      id='asia-image'
+    />
+    <div class='card-body'>
+      <h5 class='card-title'>Asia</h5>
+      <p class='card-text'>Check out some of the best recipes of Asia!</p>
+      <a href='/regions/asia' class='btn btn-primary'>Asia</a>
+    </div>
+  </div>
+
+  <div class='card' style='width: 18rem;' id='northAmerica-card'>
+    <img
+      src='/images/North_America.jpg'
+      class='card-img-top'
+      alt='North America Image'
+      id='northAmerica-image'
+    />
+    <div class='card-body'>
+      <h5 class='card-title'>North America</h5>
+      <p class='card-text'>Check out some of the best recipes of North America!</p>
+      <a href='/regions/northamerica' class='btn btn-primary'>North America</a>
+    </div>
+  </div>
+
+  <div class='card' style='width: 18rem;' id='southAmerica-card'>
+    <img
+      src='/images/South_America.jpg'
+      class='card-img-top'
+      alt='South America Image'
+      id='southAmerica-image'
+    />
+    <div class='card-body'>
+      <h5 class='card-title'>South America</h5>
+      <p class='card-text'>Check out some of the best recipes of South America!</p>
+      <a href='/regions/southamerica' class='btn btn-primary'>South America</a>
+    </div>
+  </div>
+
+  <div class='card' style='width: 18rem;' id='africa-card'>
+    <img
+      src='/images/Africa.jpg'
+      class='card-img-top'
+      alt='Africa Image'
+      id='africa-image'
+    />
+    <div class='card-body'>
+      <h5 class='card-title'>Africa</h5>
+      <p class='card-text'>Check out some of the best recipes of Africa!</p>
+      <a href='/regions/africa' class='btn btn-primary'>Africa</a>
+    </div>
+  </div>
+
+</div>
+{{!-- {{#each recipes}}
   <div>
     <h3>
       <a href='/recipes/{{id}}'>{{title}}</a>
@@ -11,4 +83,4 @@
     </p>
   </div>
 
-{{/each}}
+{{/each}} --}}
