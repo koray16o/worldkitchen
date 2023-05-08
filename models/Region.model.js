@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const regionSchema = new Schema({
-  country: String,
+  name: String,
   picture: String
 });
 
