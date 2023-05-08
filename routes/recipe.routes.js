@@ -54,7 +54,8 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
     dificulty,
     preparationTime,
     description,
-    region
+    region,
+    serves
   } = req.body;
   await Recipe.create({
     title,
@@ -64,7 +65,8 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
     preparationTime,
     imageUrl: fileUrlOnCloudinary,
     description,
-    region
+    region,
+    serves
   });
   res.redirect(`/regions/${regionDB.name}`);
 });

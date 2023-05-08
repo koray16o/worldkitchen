@@ -3,11 +3,12 @@ const recipeSchema = new Schema(
   {
     title: String,
     country: String,
-    ingredients: String,
+    ingredients: Array,
     dificulty: Number,
     preparationTime: String,
     imageUrl: String,
     description: String,
+    serves: String,
     region: { type: Schema.Types.ObjectId, ref: 'Region' }
   },
   {
