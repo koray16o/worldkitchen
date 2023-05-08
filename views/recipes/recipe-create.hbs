@@ -12,7 +12,12 @@
 
   <div class='form-group'>
     <label for='exampleFormControlSelect1'>Region</label>
-    <select name='region' class='form-control' id='exampleFormControlSelect1'>
+    <select
+      type='text'
+      name='region'
+      class='form-control'
+      id='exampleFormControlSelect1'
+    >
       {{#each region}}
         <option value={{id}}>{{name}}</option>
       {{/each}}
@@ -21,7 +26,12 @@
   </div>
   <div class='form-group'>
     <label for='exampleFormControlInput1'>Country</label>
-    <input type='text' class='form-control' id='exampleFormControlInput1' />
+    <input
+      type='text'
+      name='country'
+      class='form-control'
+      id='exampleFormControlInput2'
+    />
   </div>
 
   <div class='form-group'>
@@ -33,7 +43,7 @@
     ></textarea>
   </div><div class='form-group'>
     <label for='exampleFormControlSelect1'>Difficulty level</label>
-    <select class='form-control' id='exampleFormControlSelect1'>
+    <select class='form-control' id='exampleFormControlSelect2'>
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -43,17 +53,28 @@
   </div>
   <div class='form-group'>
     <label for='exampleFormControlInput1'>Preparation time</label>
-    <input type='text' class='form-control' id='exampleFormControlInput1' />
+    <input
+      type='text'
+      name='preparation-time'
+      class='form-control'
+      id='exampleFormControlInput3'
+    />
   </div>
   <div class='form-group'>
     <label for='exampleFormControlInput1'>Image</label>
-    <input type='file' class='form-control' id='exampleFormControlInput1' />
+    <input
+      type='file'
+      name='image'
+      class='form-control'
+      id='exampleFormControlInput4'
+    />
   </div>
   <div class='form-group'>
     <label for='exampleFormControlTextarea1'>Cooking instructions</label>
     <textarea
       class='form-control'
-      id='exampleFormControlTextarea1'
+      name='cooking-instructions'
+      id='exampleFormControlTextarea2'
       rows='3'
     ></textarea>
   </div>
