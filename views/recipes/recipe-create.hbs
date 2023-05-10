@@ -1,5 +1,5 @@
 <h1 class='create'>Create new recipe</h1>
-<form>
+<form action='/recipes/create' method='POST'>
   <div class='form-group'>
     <label for='exampleFormControlInput1'>Title</label>
     <input
@@ -40,6 +40,7 @@
       class='form-control'
       id='exampleFormControlTextarea1'
       rows='2'
+      name='ingredients'
     ></textarea>
   </div><div class='form-group'>
     <label for='exampleFormControlSelect2'>Difficulty level</label>

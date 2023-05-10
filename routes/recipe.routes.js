@@ -45,7 +45,7 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
     fileUrlOnCloudinary = req.file.path;
   }
 
-  const regionDB = await Region.findById(region);
+  const regionDB = await Region.findById(req.body.region);
 
   const {
     title,
