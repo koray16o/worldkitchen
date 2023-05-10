@@ -4,7 +4,7 @@ const recipeSchema = new Schema(
     title: String,
     country: String,
     ingredients: Array,
-    dificulty: Number,
+    difficulty: Number,
     preparationTime: String,
     imageUrl: String,
     description: String,

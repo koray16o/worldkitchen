@@ -24,9 +24,14 @@ router.get('/regions/southamerica', async (req, res) => {
   const recipesFromDB = await Recipe.find().populate('region');
 
   const southAmericaRecipes = recipesFromDB.filter(recipe => {
-    return recipe.region.name === 'Asia';
+    return recipe.region.name === 'South America';
   });
   res.render('regions/southamerica', { recipes: southAmericaRecipes });
 });
 
 module.exports = router;
+
+/* // recipe update {
+name: "dawdad",
+region: ""
+}  */

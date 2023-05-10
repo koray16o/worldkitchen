@@ -1,26 +1,42 @@
 <h2>Editing {{recipe.title}}</h2>
-<form action='/recipes/edit?id={{recipe.id}}' method='POST'>
+<form
+  action='/recipes/edit?id={{recipe._id}}'
+  method='POST'
+  enctype='multipart/form-data'
+>
 
   <label for=''>Title</label>
   <input type='text' name='title' value='{{recipe.title}}' />
 
   <label for=''>Country</label>
-  <input type='text' name='country' />
+  <input type='text' name='country' value='{{recipe.country}}' />
 
   <label for=''>Ingredients</label>
-  <input type='text' name='ingredients' />
+  <input type='text' name='ingredients' value='{{recipe.ingredients}}' />
 
-  <label for=''>Dificulty</label>
-  <input type='number' name='dificulty' min='1' max='5' />
+  <label for=''>Difficulty</label>
+  <input
+    type='number'
+    name='difficulty'
+    min='1'
+    max='5'
+    value='{{recipe.difficulty}}'
+  />
 
   <label for=''>Preparation Time</label>
-  <input type='text' name='preparationTime' />
+  <input
+    type='text'
+    name='preparationTime'
+    value='{{recipe.preparationTime}}'
+  />
+  <label for=''>Serves</label>
+  <input type='text' name='serves' value='{{recipe.serves}}' />
 
   <label for=''>Image</label>
-  <input type='image' name='image' />
+  <input type='file' name='image' />
 
   <label for=''>Description</label>
-  <input type='text' name='description' />
+  <input type='text' name='description' value='{{recipe.description}}' />
 
   <button type='submit'>Update</button>
 </form>

@@ -87,6 +87,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.recipe-details {
+.recipe-details,
+.asia,
+.southAmerica {
   font-size: 20px;
 }

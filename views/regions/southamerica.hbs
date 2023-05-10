@@ -1,15 +1,17 @@
-<h1 class='southAmerica'>South America</h1>
-<hr class='hr' />
-{{#each recipes}}
-  <div>
-    <h3>
-      <a href='/recipes/{{id}}'>{{title}}</a>
-    </h3>
-    <p>Region:{{region.name}}</p>
-    <p>Country:{{country}}</p>
-  </div>
-  <hr />
+<div class='southAmerica'>
 
-{{/each}}
+  <h1>South America</h1>
+  <hr class='hr' />
+  {{#each recipes}}
+    <div>
+      <h3>
+        <a href='/recipes/{{id}}'>{{title}}</a>
+      </h3>
+      <p>Region:{{region.name}}</p>
+      <p>Country:{{country}}</p>
+    </div>
+    <hr />
 
+  {{/each}}
+</div>
 <a class='create-new' href='/recipes/create'>Create new recipe</a>

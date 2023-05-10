@@ -45,7 +45,7 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
     title,
     country,
     ingredients,
-    dificulty,
+    difficulty,
     preparationTime,
     description,
     region,
@@ -55,7 +55,7 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
     title,
     country,
     ingredients,
-    dificulty,
+    difficulty,
     preparationTime,
     imageUrl: fileUrlOnCloudinary,
     description,
@@ -70,7 +70,7 @@ router.post('/recipes/edit', async (req, res) => {
     title,
     country,
     ingredients,
-    dificulty,
+    difficulty,
     preparationTime,
     description
   } = req.body;
@@ -78,7 +78,7 @@ router.post('/recipes/edit', async (req, res) => {
     title,
     country,
     ingredients,
-    dificulty,
+    difficulty,
     preparationTime,
     description
   });
