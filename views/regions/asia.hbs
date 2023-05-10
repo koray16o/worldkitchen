@@ -1,12 +1,15 @@
 <h1 class='asia'>Asia</h1>
+<hr />
 {{#each recipes}}
   <div>
     <h3>
       <a href='/recipes/{{id}}'>{{title}}</a>
     </h3>
     <p>Region:{{region.name}}</p>
+    <p>Country:{{country}}</p>
   </div>
+  <hr />
 
 {{/each}}
 
-<a href='/recipes/create'>Create new recipe</a>
+<a class='create-new' href='/recipes/create'>Create new recipe</a>

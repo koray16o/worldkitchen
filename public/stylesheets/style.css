@@ -8,7 +8,7 @@ body {
   padding-left: 170px;
 }
 .carousel-item {
-  height: 600px;
+  height: 650px;
 }
 .col-script,
 .form-group,
@@ -18,7 +18,8 @@ body {
 .asia,
 .europe,
 .northAmerica,
-.southAmerica {
+.southAmerica,
+.recipe-details {
   font-family: 'Shadows Into Light';
 }
 
@@ -72,5 +73,20 @@ body {
   height: 300px;
 }
 .form-group {
+  font-size: 20px;
+}
+.create-new {
+  display: flex;
+  flex-direction: row-reverse;
+  font-family: 'Shadows Into Light';
+  font-size: 20px;
+  color: black;
+}
+.AfricanBackground {
+  background-image: url(../images/dessert.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.recipe-details {
   font-size: 20px;
 }

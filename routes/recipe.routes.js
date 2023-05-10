@@ -33,12 +33,6 @@ router.get('/recipes/:id/edit', async (req, res) => {
   res.render('recipes/recipe-edit', { recipe, region });
 });
 
-//Get the view to view the book
-router.get('/recipes/:id', async (req, res) => {
-  const recipe = await Recipe.findById(req.params.id);
-  res.render('recipes/recipe-details', recipe);
-});
-
 router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
   let fileUrlOnCloudinary = '';
   if (req.file) {
@@ -90,10 +84,15 @@ router.post('/recipes/edit', async (req, res) => {
   });
   res.redirect(`/recipes/${req.query.id}`);
 });
+router.get('/recipes/:id', async (req, res) => {
+  const recipes = await Recipe.findById(req.params.id).populate('region');
+  console.log('Recipes: ', recipes);
+  res.render('recipes/recipe-details', recipes);
+});
 
 router.post('/recipes/delete/:id', async (req, res) => {
   await Recipe.findByIdAndDelete(req.params.id);
-  res.redirect('/recipes');
+  res.redirect('/');
 });
 
 router.post('/comments/add/:id', requireLogin, async (req, res) => {

@@ -1,34 +1,37 @@
-<h1>{{title}}</h1>
-<hr />
-<p>Country: {{author.name}}</p>
-<p>Ingredients: {{ingredients}}</p>
-<p>Dificulty: {{dificulty}}</p>
-<p>Preparation Time: {{preparationTime}}</p>
-<p>Description: {{description}}</p>
-<a href='/recipes/{{id}}/edit'>Edit this Recipe</a>
-<form action='/recipes/delete/{{id}}' method='POST'>
-  <button>Delete</button>
-</form>
+<div class='recipe-details'>
+  <h1>{{title}}</h1>
+  <hr />
+  <p>Country: {{country}}</p>
+  <p>Ingredients: {{ingredients}}</p>
+  <p>Dificulty: {{dificulty}}</p>
+  <p>Preparation Time: {{preparationTime}}</p>
+  <p>Serves: {{serves}}</p>
+  <p>Description: {{description}}</p>
+  <hr />
+  <a href='/recipes/{{_id}}/edit'>Edit this Recipe</a>
+  <form action='/recipes/delete/{{_id}}' method='POST'>
+    <button>Delete</button>
+  </form>
 
-{{#if imageUrl}}
-  <img src='{{imageUrl}}' />
-{{/if}}
-<hr />
-<a href='/recipes'>Back</a>
+  {{#if imageUrl}}
+    <img src='{{imageUrl}}' />
+  {{/if}}
+  <hr />
+  <a href='/regions/{{region.name}}'>Back</a>
 
-<h2>Comments</h2>
+  <h2>Comments</h2>
 
-{{#each comment}}
+  {{#each comment}}
 
-  <p><span> User: {{user}}</span> -- Comment: {{comment}}</p>
+    <p><span> User: {{user}}</span> -- Comment: {{comment}}</p>
 
-{{/each}}
+  {{/each}}
 
-<h2>Add a Review</h2>
-<form action='/comments/add/{{id}}' method='POST'>
-  <label for=''>User:</label>
-  <input type='text' name='user' />
-  <label for=''>Comment</label>
-  <textarea name='comment' cols='20' rows='2'></textarea>
-  <button type='submit'>Add</button>
-</form>
+  <h2>Add a Review</h2>
+  <form action='/comments/add/{{id}}' method='POST'>
+    <label for=''>User:</label>
+    <input type='text' name='user' />
+    <label for=''>Comment</label>
+    <textarea name='comment' cols='20' rows='2'></textarea>
+    <button type='submit'>Add</button>
+  </form></div>
