@@ -1,11 +1,21 @@
 <div class='recipe-details'>
   <h1>{{title}}</h1>
-  {{#if imageUrl}}
-    <img src='{{imageUrl}}' />
-  {{/if}}
+  <div class='image'>{{#if imageUrl}}
+      <img src='{{imageUrl}}' width='100px' />
+    {{/if}}
+  </div>
   <hr />
   <p>Country: {{country}}</p>
-  <p>Ingredients: {{ingredients}}</p>
+
+  <p>Ingredients:
+
+    {{#each ingredients}}<ul>
+        <li class='ingredient'>{{this}}</li></ul>
+
+    {{/each}}
+
+  </p>
+
   <p>Difficulty: {{difficulty}}</p>
   <p>Preparation Time: {{preparationTime}}</p>
   <p>Serves: {{serves}}</p>

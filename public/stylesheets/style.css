@@ -82,13 +82,13 @@ body {
   font-size: 20px;
   color: black;
 }
-.AfricanBackground {
-  background-image: url(../images/dessert.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .recipe-details,
 .asia,
 .southAmerica {
   font-size: 20px;
+}
+.image {
+  display: flex;
+  flex-direction: row-reverse;
 }

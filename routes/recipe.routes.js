@@ -65,7 +65,11 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
   res.redirect(`/regions/${regionDB.name}`);
 });
 
-router.post('/recipes/edit', async (req, res) => {
+router.post('/recipes/edit', fileUpload.single('image'), async (req, res) => {
+  let fileUrlOnCloudinary = '';
+  if (req.file) {
+    fileUrlOnCloudinary = req.file.path;
+  }
   const {
     title,
     country,
@@ -80,7 +84,8 @@ router.post('/recipes/edit', async (req, res) => {
     ingredients,
     difficulty,
     preparationTime,
-    description
+    description,
+    imageUrl: fileUrlOnCloudinary
   });
   res.redirect(`/recipes/${req.query.id}`);
 });

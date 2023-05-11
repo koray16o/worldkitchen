@@ -4,7 +4,12 @@ const Region = require('../models/Region.model');
 const fileUpload = require('../config/cloudinary');
 
 router.get('/regions/africa', async (req, res) => {
-  res.render('regions/africa');
+  const recipesFromDB = await Recipe.find().populate('region');
+
+  const africaRecipes = recipesFromDB.filter(recipe => {
+    return recipe.region.name === 'Africa';
+  });
+  res.render('regions/africa', { recipe: africaRecipes });
 });
 router.get('/regions/asia', async (req, res) => {
   const recipesFromDB = await Recipe.find().populate('region');
@@ -15,10 +20,20 @@ router.get('/regions/asia', async (req, res) => {
   res.render('regions/asia', { recipes: asiaRecipes });
 });
 router.get('/regions/europe', async (req, res) => {
-  res.render('regions/europe');
+  const recipesFromDB = await Recipe.find().populate('region');
+
+  const europeRecipes = recipesFromDB.filter(recipe => {
+    return recipe.region.name === 'Europe';
+  });
+  res.render('regions/europe', { recipe: europeRecipes });
 });
 router.get('/regions/northamerica', async (req, res) => {
-  res.render('regions/northamerica');
+  const recipesFromDB = await Recipe.find().populate('region');
+
+  const northAmericaRecipes = recipesFromDB.filter(recipe => {
+    return recipe.region.name === 'North America';
+  });
+  res.render('regions/northamerica', { recipe: northAmericaRecipes });
 });
 router.get('/regions/southamerica', async (req, res) => {
   const recipesFromDB = await Recipe.find().populate('region');
