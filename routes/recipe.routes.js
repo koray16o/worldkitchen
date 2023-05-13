@@ -92,8 +92,8 @@ router.post('/recipes/create', fileUpload.array('files'), async (req, res) => {
 router.post('/recipes/edit', fileUpload.array('files'), async (req, res) => {
   console.log(req);
   let fileUrlOnCloudinary = [];
-  if (req.file) {
-    fileUrlOnCloudinary = req.files.values;
+  if (req.files) {
+    fileUrlOnCloudinary = req.files.map(file => file.path);
   }
 
   const {
