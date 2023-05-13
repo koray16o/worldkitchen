@@ -4,7 +4,25 @@ const Region = require('../models/Region.model');
 const fileUpload = require('../config/cloudinary');
 
 //This is a middleware (more protection)
-function requireLogin(req, res, next) {
+/* function requireLogin(req, res, next) {
+  if (req.session.currentUser) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+} */
+const userRole = { admin: 'Admin', user: 'User' };
+function isAdmin(req, res, next) {
+  if (req.session.currentUser.role === 'Admin') {
+    next();
+  } else {
+    return res.status(403).json({
+      message: 'Forbidden'
+    });
+  }
+}
+
+function isAuthenticated(req, res, next) {
   if (req.session.currentUser) {
     next();
   } else {
@@ -110,7 +128,7 @@ router.post('/recipes/delete/:id', async (req, res) => {
   res.redirect('/');
 });
 
-router.post('/comments/add/:id', requireLogin, async (req, res) => {
+router.post('/comments/add/:id', async (req, res) => {
   const { user, comment } = req.body;
   await Recipe.findByIdAndUpdate(req.params.id, {
     $push: { reviews: { user, comment } }
