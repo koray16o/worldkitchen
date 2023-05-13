@@ -1,17 +1,21 @@
-<h1>Login</h1>
+<body class='background'>
+  <div class='login'>
 
-<form action='/login' method='POST'>
+    <h1>Login</h1>
 
-  <label for=''>Username</label>
-  <input type='text' name='username' required />
+    <form action='/login' method='POST'>
 
-  <label for=''>Password</label>
-  <input type='password' name='password' required />
+      <label for=''>Username</label>
+      <input type='text' name='username' required />
 
-  <button type='submit'>Login</button>
+      <label for=''>Password</label>
+      <input type='password' name='password' required />
 
-</form>
+      <button type='submit'>Login</button>
 
+    </form>
+  </div>
+</body>
 {{#if errorMessage}}
   <div style='color:red'>{{errorMessage}}</div>
 {{/if}}

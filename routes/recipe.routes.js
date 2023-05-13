@@ -33,11 +33,14 @@ router.get('/recipes/:id/edit', async (req, res) => {
   res.render('recipes/recipe-edit', { recipe, region });
 });
 
-router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
-  let fileUrlOnCloudinary = '';
-  if (req.file) {
-    fileUrlOnCloudinary = req.file.path;
+router.post('/recipes/create', fileUpload.array('files'), async (req, res) => {
+  console.log(req);
+  let fileUrlOnCloudinary = [];
+  if (req.files) {
+    fileUrlOnCloudinary = req.files.map(file => file.path);
   }
+
+  console.log(fileUrlOnCloudinary);
 
   const regionDB = await Region.findById(req.body.region);
 
@@ -51,10 +54,13 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
     region,
     serves
   } = req.body;
+
+  const ingredientsArray = ingredients.split(',');
+
   await Recipe.create({
     title,
     country,
-    ingredients,
+    ingredients: ingredientsArray,
     difficulty,
     preparationTime,
     imageUrl: fileUrlOnCloudinary,
@@ -65,11 +71,13 @@ router.post('/recipes/create', fileUpload.single('image'), async (req, res) => {
   res.redirect(`/regions/${regionDB.name}`);
 });
 
-router.post('/recipes/edit', fileUpload.single('image'), async (req, res) => {
-  let fileUrlOnCloudinary = '';
+router.post('/recipes/edit', fileUpload.array('files'), async (req, res) => {
+  console.log(req);
+  let fileUrlOnCloudinary = [];
   if (req.file) {
-    fileUrlOnCloudinary = req.file.path;
+    fileUrlOnCloudinary = req.files.values;
   }
+
   const {
     title,
     country,
@@ -78,10 +86,12 @@ router.post('/recipes/edit', fileUpload.single('image'), async (req, res) => {
     preparationTime,
     description
   } = req.body;
+  const ingredientsArray = ingredients.split(',');
+
   await Recipe.findByIdAndUpdate(req.query.id, {
     title,
     country,
-    ingredients,
+    ingredients: ingredientsArray,
     difficulty,
     preparationTime,
     description,
