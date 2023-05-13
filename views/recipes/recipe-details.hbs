@@ -1,9 +1,14 @@
 <div class='recipe-details'>
   <h1>{{title}}</h1>
-  <div class='image'>{{#if imageUrl}}
-      <img src='{{imageUrl}}' width='100px' />
+  <div class='image'>
+    {{#if imageUrl}}
+      {{#each imageUrl}}
+        <img src='{{this}}' width='100px' />,
+      {{/each}}
+
     {{/if}}
   </div>
+
   <hr />
   <p>Country: {{country}}</p>
 

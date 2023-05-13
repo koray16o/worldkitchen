@@ -19,7 +19,9 @@ body {
 .europe,
 .northAmerica,
 .southAmerica,
-.recipe-details {
+.recipe-details,
+.signup,
+.login {
   font-family: 'Shadows Into Light';
 }
 
@@ -85,10 +87,24 @@ body {
 
 .recipe-details,
 .asia,
-.southAmerica {
+.southAmerica,
+.europe,
+.northAmerica,
+.africa,
+.login,
+.signup {
   font-size: 20px;
 }
 .image {
   display: flex;
   flex-direction: row-reverse;
+}
+.background {
+  background-image: url(../images/signup\ background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.login,
+.signup {
+  font: bold;
 }

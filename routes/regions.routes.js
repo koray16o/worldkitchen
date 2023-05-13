@@ -9,7 +9,7 @@ router.get('/regions/africa', async (req, res) => {
   const africaRecipes = recipesFromDB.filter(recipe => {
     return recipe.region.name === 'Africa';
   });
-  res.render('regions/africa', { recipe: africaRecipes });
+  res.render('regions/africa', { recipes: africaRecipes });
 });
 router.get('/regions/asia', async (req, res) => {
   const recipesFromDB = await Recipe.find().populate('region');
@@ -25,21 +25,21 @@ router.get('/regions/europe', async (req, res) => {
   const europeRecipes = recipesFromDB.filter(recipe => {
     return recipe.region.name === 'Europe';
   });
-  res.render('regions/europe', { recipe: europeRecipes });
+  res.render('regions/europe', { recipes: europeRecipes });
 });
 router.get('/regions/northamerica', async (req, res) => {
   const recipesFromDB = await Recipe.find().populate('region');
 
   const northAmericaRecipes = recipesFromDB.filter(recipe => {
-    return recipe.region.name === 'North America';
+    return recipe.region.name === 'Northamerica';
   });
-  res.render('regions/northamerica', { recipe: northAmericaRecipes });
+  res.render('regions/northamerica', { recipes: northAmericaRecipes });
 });
 router.get('/regions/southamerica', async (req, res) => {
   const recipesFromDB = await Recipe.find().populate('region');
 
   const southAmericaRecipes = recipesFromDB.filter(recipe => {
-    return recipe.region.name === 'South America';
+    return recipe.region.name === 'Southamerica';
   });
   res.render('regions/southamerica', { recipes: southAmericaRecipes });
 });

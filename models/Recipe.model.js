@@ -3,10 +3,10 @@ const recipeSchema = new Schema(
   {
     title: String,
     country: String,
-    ingredients: Array,
+    ingredients: [String],
     difficulty: Number,
     preparationTime: String,
-    imageUrl: String,
+    imageUrl: [String],
     description: String,
     serves: String,
     region: { type: Schema.Types.ObjectId, ref: 'Region' }
