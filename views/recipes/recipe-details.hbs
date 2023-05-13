@@ -25,11 +25,15 @@
   <p>Preparation Time: {{preparationTime}}</p>
   <p>Serves: {{serves}}</p>
   <p>Cooking Instructions: {{description}}</p>
-  <hr />
-  <a href='/recipes/{{_id}}/edit'>Edit this Recipe</a>
-  <form action='/recipes/delete/{{_id}}' method='POST'>
-    <button>Delete</button>
-  </form>
+
+  {{#if currentUser.role}}
+    <hr />
+
+    <a href='/recipes/{{_id}}/edit'>Edit this Recipe</a>
+    <form action='/recipes/delete/{{_id}}' method='POST'>
+      <button>Delete</button>
+    </form>
+  {{/if}}
 
   <hr />
   <a href='/regions/{{region.name}}'>Back</a>
