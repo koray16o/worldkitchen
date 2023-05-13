@@ -2,11 +2,16 @@
   <h1>{{title}}</h1>
   <div class='image'>
     {{#if imageUrl}}
+
       {{#each imageUrl}}
-        <img src='{{this}}' width='100px' />,
+        <div class='image'>
+          <img src='{{this}}' width='100px' />
+        </div>
+
       {{/each}}
 
     {{/if}}
+
   </div>
 
   <hr />
@@ -14,8 +19,10 @@
 
   <p>Ingredients:
 
-    {{#each ingredients}}<ul>
-        <li class='ingredient'>{{this}}</li></ul>
+    {{#each ingredients}}
+      <ul>
+        <li class='ingredient'>{{this}}</li>
+      </ul>
 
     {{/each}}
 
@@ -53,4 +60,5 @@
     <label for=''>Comment</label>
     <textarea name='comment' cols='20' rows='2'></textarea>
     <button type='submit'>Add</button>
-  </form></div>
+  </form>
+</div>

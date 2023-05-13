@@ -4,39 +4,80 @@
   method='POST'
   enctype='multipart/form-data'
 >
+  <div class='form-edit'>
+    <label for=''>Title</label>
+    <input
+      type='text'
+      name='title'
+      class='form-control'
+      value='{{recipe.title}}'
+    />
+  </div>
+  <div class='form-edit'>
+    <label for=''>Country</label>
+    <input
+      type='text'
+      name='country'
+      class='form-control'
+      value='{{recipe.country}}'
+    />
+  </div>
+  <div class='form-edit'>
+    <label for=''>Ingredients</label>
+    <input
+      type='textarea'
+      name='ingredients'
+      class='form-control'
+      value='{{recipe.ingredients}}'
+    />
+  </div>
 
-  <label for=''>Title</label>
-  <input type='text' name='title' value='{{recipe.title}}' />
+  <div class='form-edit'>
+    <label for=''>Difficulty</label>
+    <input
+      type='number'
+      name='difficulty'
+      min='1'
+      max='5'
+      class='form-control'
+      value='{{recipe.difficulty}}'
+    /></div>
+  <div class='form-edit'>
+    <label for=''>Preparation Time</label>
+    <input
+      type='text'
+      name='preparationTime'
+      class='form-control'
+      value='{{recipe.preparationTime}}'
+    /></div>
+  <div class='form-edit'>
+    <label for=''>Serves</label>
+    <input
+      type='text'
+      name='serves'
+      class='form-control'
+      value='{{recipe.serves}}'
+    />
+  </div>
+  <div class='form-edit'>
+    <label for=''>Image</label>
+    <input
+      type='file'
+      name='files'
+      class='form-control'
+      id='exampleFormControlInput5'
+      multiple='multiple'
+    />
+  </div>
 
-  <label for=''>Country</label>
-  <input type='text' name='country' value='{{recipe.country}}' />
-
-  <label for=''>Ingredients</label>
-  <input type='textarea' name='ingredients' value='{{recipe.ingredients}}' />
-
-  <label for=''>Difficulty</label>
-  <input
-    type='number'
-    name='difficulty'
-    min='1'
-    max='5'
-    value='{{recipe.difficulty}}'
-  />
-
-  <label for=''>Preparation Time</label>
-  <input
-    type='text'
-    name='preparationTime'
-    value='{{recipe.preparationTime}}'
-  />
-  <label for=''>Serves</label>
-  <input type='text' name='serves' value='{{recipe.serves}}' />
-
-  <label for=''>Image</label>
-  <input type='file' name='image' />
-
-  <label for=''>Description</label>
-  <input type='text' name='description' value='{{recipe.description}}' />
-
-  <button type='submit'>Update</button>
+  <div class='form-edit'>
+    <label for=''>Description</label>
+    <input
+      type='text'
+      name='description'
+      class='form-control'
+      value='{{recipe.description}}'
+    />
+  </div>
+  <button class='edit-button' type='submit'>Update</button>
 </form>

@@ -29,6 +29,9 @@ body {
   font-family: 'Shadows Into Light';
   margin-top: 20px;
 }
+.edit-button {
+  margin-top: 20px;
+}
 
 .nav-item-logout {
   font-family: Arial, Helvetica, sans-serif;
@@ -104,7 +107,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.login,
-.signup {
-  font: bold;
+
+.username,
+.password {
+  background-color: white;
+  font-weight: bolder;
+  font-size: 30px;
 }
