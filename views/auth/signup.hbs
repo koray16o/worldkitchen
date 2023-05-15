@@ -1,22 +1,24 @@
-<div class='signup'>
-  <h1>Signup</h1>
+<body class='background1'>
+  <div class='signup'>
+    <h1>Signup</h1>
 
-  <form action='/signup' method='POST'>
+    <form action='/signup' method='POST'>
 
-    <label for=''>Username</label>
-    <input type='text' name='username' required />
+      <label for=''>Username</label>
+      <input type='text' name='username' required />
 
-    <label for=''>Email</label>
-    <input type='email' name='email' required />
+      <label for=''>Email</label>
+      <input type='email' name='email' required />
 
-    <label for=''>Password</label>
-    <input type='password' name='password' required />
+      <label for=''>Password</label>
+      <input type='password' name='password' required />
 
-    <button type='submit'>Create User</button>
+      <button type='submit'>Create User</button>
 
-  </form>
+    </form>
 
-</div>
+  </div>
+</body>
 {{#if errorMessage}}
   <div style='color:red'>{{errorMessage}}</div>
 {{/if}}

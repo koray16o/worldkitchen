@@ -114,3 +114,11 @@ body {
   font-weight: bolder;
   font-size: 30px;
 }
+.background1 {
+  background-image: url(../images/background\ signup.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signup {
+  margin-top: 200px;
+}
