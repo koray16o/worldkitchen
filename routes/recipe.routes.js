@@ -3,17 +3,8 @@ const Recipe = require('../models/Recipe.model');
 const Region = require('../models/Region.model');
 const fileUpload = require('../config/cloudinary');
 
-//This is a middleware (more protection)
-/* function requireLogin(req, res, next) {
-  if (req.session.currentUser) {
-    next();
-  } else {
-    res.redirect('/login');
-  }
-} */
-const userRole = { admin: 'Admin', user: 'User' };
 function isAdmin(req, res, next) {
-  if (req.session.currentUser.role === 'Admin') {
+  if (req.session.currentUser && req.session.currentUser.role === 'admin') {
     next();
   } else {
     return res.status(403).json({
@@ -36,7 +27,8 @@ router.get('/recipes', async (req, res) => {
   res.render('recipes/recipe-list', { recipes: recipesFromDB });
 });
 
-router.get('/recipes/create', async (req, res) => {
+router.get('/recipes/create', isAdmin, async (req, res) => {
+  //Remember to add isAdmin when presenting project
   const region = await Region.find();
   res.render('recipes/recipe-create', { region });
 });
@@ -44,7 +36,8 @@ router.get('/recipes/create', async (req, res) => {
 //http://localhost/books/edit -> right
 //http://localhost/book-edit -> wrong
 //Get the view to edit the book
-router.get('/recipes/:id/edit', async (req, res) => {
+router.get('/recipes/:id/edit', isAdmin, async (req, res) => {
+  //Remember to add isAdmin when presenting project
   const recipe = await Recipe.findById(req.params.id);
   const region = await Region.find();
   //Name of the edit(file of hbs)
@@ -123,12 +116,14 @@ router.get('/recipes/:id', async (req, res) => {
   res.render('recipes/recipe-details', recipes);
 });
 
-router.post('/recipes/delete/:id', async (req, res) => {
+router.post('/recipes/delete/:id', isAdmin, async (req, res) => {
+  //Remember to add isAdmin when presenting project
   await Recipe.findByIdAndDelete(req.params.id);
   res.redirect('/');
 });
 
-router.post('/comments/add/:id', async (req, res) => {
+router.post('/comments/add/:id', isAuthenticated, async (req, res) => {
+  //Remember to add isAuthenticated when presenting project
   const { user, comment } = req.body;
   await Recipe.findByIdAndUpdate(req.params.id, {
     $push: { reviews: { user, comment } }

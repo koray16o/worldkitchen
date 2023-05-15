@@ -7,8 +7,7 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
-  const { username, email, password } = req.body;
-
+  const { username, email, password, role } = req.body;
   if (username === '' || email === '' || password === '') {
     res.render('auth/signup', { errorMessage: 'Fill in all the fields' });
     return;
@@ -33,7 +32,8 @@ router.post('/signup', async (req, res) => {
   await User.create({
     username,
     email,
-    password: hashedPassword
+    password: hashedPassword,
+    role
   });
   res.redirect('/');
 });
@@ -43,7 +43,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, role } = req.body;
 
   if (username === '' || password === '') {
     res.render('auth/login', { errorMessage: 'Invalid Login' });
