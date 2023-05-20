@@ -35,7 +35,9 @@
 
   {{#if currentUser.role}}
     <hr />
-
+    <form action='/recipe/{{_id}}/favourites' method='POST'>
+      <button>Add to favorites</button>
+    </form>
     <a href='/recipes/{{_id}}/edit'>Edit this Recipe</a>
     <form action='/recipes/delete/{{_id}}' method='POST'>
       <button>Delete</button>

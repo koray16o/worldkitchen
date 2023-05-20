@@ -7,6 +7,11 @@ body {
   font: 20px 'Comic Sans MS';
   padding-left: 170px;
 }
+.nav-item-favourites {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+}
 .carousel-item {
   height: 650px;
 }
@@ -21,7 +26,8 @@ body {
 .southAmerica,
 .recipe-details,
 .signup,
-.login {
+.login,
+.favourites {
   font-family: 'Shadows Into Light';
 }
 
@@ -121,4 +127,7 @@ body {
 }
 .signup {
   margin-top: 200px;
+}
+.favourites-background {
+  background-color: wheat;
 }
