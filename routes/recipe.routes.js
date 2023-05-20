@@ -122,9 +122,10 @@ router.post('/recipes/delete/:id', async (req, res) => {
   res.redirect('/');
 });
 
-router.post('/comments/add/:id', async (req, res) => {
+router.post('/reviews/add/:id', async (req, res) => {
   //Remember to add isAuthenticated when presenting project
   const { user, comment } = req.body;
+  console.log(req.body);
   await Recipe.findByIdAndUpdate(req.params.id, {
     $push: { reviews: { user, comment } }
   });

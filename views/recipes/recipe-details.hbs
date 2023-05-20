@@ -45,20 +45,23 @@
   <hr />
   <a href='/regions/{{region.name}}'>Back</a>
 
-  <h2>Comments</h2>
+  <hr />
 
-  {{#each comment}}
-
-    <p><span> User: {{user}}</span> -- Comment: {{comment}}</p>
-
-  {{/each}}
-
-  <h2>Add a Review</h2>
-  <form action='/comments/add/{{id}}' method='POST'>
+  <h2>Add a Comment</h2>
+  <form action='/reviews/add/{{id}}' method='POST'>
     <label for=''>User:</label>
     <input type='text' name='user' />
     <label for=''>Comment</label>
     <textarea name='comment' cols='20' rows='2'></textarea>
     <button type='submit'>Add</button>
   </form>
+
+  <h2>Comments:</h2>
+
+  {{#each reviews}}
+
+    <p><span> User: {{user}}</span> -- Comment: {{comment}}</p>
+
+  {{/each}}
+
 </div>
