@@ -96,9 +96,11 @@
           <form class='d-flex' role='search'>
             <input
               class='form-control me-2'
+              name='search'
               type='search'
-              placeholder='Search'
+              placeholder='Search recipes..'
               aria-label='Search'
+              id='searchbar'
             />
             <button class='btn btn-outline-success' type='submit'>
               Search
@@ -107,14 +109,6 @@
         </div>
       </div>
     </nav>
-
-    {{!-- {{#if currentUser}}
-      <p>Welcome {{currentUser.username}}!</p>
-      <a href='/recipes/create'>Create Recipe</a>
-      <form action='/logout' method='POST'>
-        <button type='submit'>Logout</button>
-      </form>
-    {{/if}} --}}
 
     <div class='container'>
       {{{body}}}

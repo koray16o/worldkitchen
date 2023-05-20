@@ -21,13 +21,19 @@ function isAuthenticated(req, res, next) {
   }
 }
 
+/* function searchRecipe(req, res) {
+  let input = document.getElementById("searchbar").value
+  input = input.toLowerCase()
+  let x = document.get
+} */
+
 //Getting the books
 router.get('/recipes', async (req, res) => {
   const recipesFromDB = await Recipe.find();
   res.render('recipes/recipe-list', { recipes: recipesFromDB });
 });
 
-router.get('/recipes/create', isAdmin, async (req, res) => {
+router.get('/recipes/create', async (req, res) => {
   //Remember to add isAdmin when presenting project
   const region = await Region.find();
   res.render('recipes/recipe-create', { region });
@@ -36,7 +42,7 @@ router.get('/recipes/create', isAdmin, async (req, res) => {
 //http://localhost/books/edit -> right
 //http://localhost/book-edit -> wrong
 //Get the view to edit the book
-router.get('/recipes/:id/edit', isAdmin, async (req, res) => {
+router.get('/recipes/:id/edit', async (req, res) => {
   //Remember to add isAdmin when presenting project
   const recipe = await Recipe.findById(req.params.id);
   const region = await Region.find();
@@ -116,15 +122,16 @@ router.get('/recipes/:id', async (req, res) => {
   res.render('recipes/recipe-details', recipes);
 });
 
-router.post('/recipes/delete/:id', isAdmin, async (req, res) => {
+router.post('/recipes/delete/:id', async (req, res) => {
   //Remember to add isAdmin when presenting project
   await Recipe.findByIdAndDelete(req.params.id);
   res.redirect('/');
 });
 
-router.post('/comments/add/:id', isAuthenticated, async (req, res) => {
+router.post('/reviews/add/:id', async (req, res) => {
   //Remember to add isAuthenticated when presenting project
   const { user, comment } = req.body;
+  console.log(req.body);
   await Recipe.findByIdAndUpdate(req.params.id, {
     $push: { reviews: { user, comment } }
   });

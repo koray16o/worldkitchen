@@ -9,7 +9,8 @@ const recipeSchema = new Schema(
     imageUrl: [String],
     description: String,
     serves: String,
-    region: { type: Schema.Types.ObjectId, ref: 'Region' }
+    region: { type: Schema.Types.ObjectId, ref: 'Region' },
+    comment: { type: Schema.Types.ObjectId, ref: 'Comment' }
   },
   {
     timestamps: true
