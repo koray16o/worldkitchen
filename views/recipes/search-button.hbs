@@ -3,7 +3,7 @@
   <ul>
     {{#each recipes}}
       {{#if this}}
-        <li>{{title}}</li>
+        <a href='/recipes/{{id}}'><li>{{title}}</li></a>
       {{/if}}
     {{/each}}
   </ul>

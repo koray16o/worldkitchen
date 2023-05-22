@@ -164,39 +164,6 @@ router.post('/reviews/add/:id', async (req, res) => {
   res.redirect(`/recipes/${req.params.id}`);
 });
 
-/* router.get('/recipes/search', async (req, res) => {
-  const recipes = await Recipe.find({
-    title: req.body.search
-  }); 
-  res.render('recipes/search-button', { recipes });
-}); */
-
-/* router.post('/recipes/search', async (req, res) => {
-  await Recipe.find({ title: req.body.title });
-  res.redirect('/recipes/search');
-}); */
-
-/* router.get('/recipes/search', async (req, res) => {
-  const searchQuery = req.query.search;
-  const recipes = await Recipe.find({
-    title: { $regex: searchQuery, $options: '_id' }
-  });
-  res.render('recipes/search-button', { recipes, searchQuery });
-}); */
-
-/* router.get('/recipes/search', async (req, res) => {
-  const searchQuery = req.query.search;
-
-  const recipes = await Recipe.find({
-    title: searchQuery
-  });
-const arrayOfRecipes = recipes.map()
-arrayOfRecipes.startsWith()
-
-
-  res.render('recipes/search-button', { recipes, searchQuery });
-}); */
-
 router.post('/recipes/search', async (req, res) => {
   const searchQuery = req.body.search;
   console.log(req.query);
@@ -204,13 +171,13 @@ router.post('/recipes/search', async (req, res) => {
   const recipes = await Recipe.find().populate('region comment');
 
   const filteredRecipes = recipes.map(recipe => {
-    if (recipe.title.toLowerCase().startsWith(searchQuery.toLowerCase())) {
+    if (recipe.title.toLowerCase().includes(searchQuery.toLowerCase())) {
       return recipe;
     } else {
       return;
     }
   });
-  console.log(filteredRecipes);
+
   res.render('recipes/search-button', {
     recipes: filteredRecipes,
     searchQuery
