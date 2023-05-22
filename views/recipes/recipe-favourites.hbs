@@ -1,0 +1,22 @@
+
+<body class="favourites-background">
+<div class='favourites'>
+ <h1> {{#if currentUser}}
+                <p>{{currentUser.username}}'s
+                  favourite recipes</p></a>
+
+                  
+              {{/if}}</h1>
+
+
+
+{{#each favoriteRecipes}}
+    
+      <h3>
+        <a href='/recipes/{{id}}'>{{title}}</a>
+      </h3>
+
+      {{/each}}
+      
+      </div>
+      </body>

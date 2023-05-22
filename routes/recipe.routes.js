@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Recipe = require('../models/Recipe.model');
 const Region = require('../models/Region.model');
 const fileUpload = require('../config/cloudinary');
+const User = require('../models/User.model');
 
 function isAdmin(req, res, next) {
   if (req.session.currentUser && req.session.currentUser.role === 'admin') {
@@ -21,7 +22,11 @@ function isAuthenticated(req, res, next) {
   }
 }
 
+<<<<<<< HEAD
 //Getting the books
+=======
+//Getting the recipes
+>>>>>>> 6ed0641d2d2e94499d8cd2f073b9f80de5dd72d1
 router.get('/recipes', async (req, res) => {
   const recipesFromDB = await Recipe.find();
   res.render('recipes/recipe-list', { recipes: recipesFromDB });
@@ -31,6 +36,23 @@ router.get('/recipes/create', async (req, res) => {
   //Remember to add isAdmin when presenting project
   const region = await Region.find();
   res.render('recipes/recipe-create', { region });
+});
+router.get('/recipes/favourite', async (req, res) => {
+  const userId = req.session.currentUser._id;
+  const user = await User.findById(userId).populate('favoriteRecipes');
+  console.log(user);
+  res.render('recipes/recipe-favourites', {
+    favoriteRecipes: user.favoriteRecipes
+  });
+});
+
+router.post('/recipe/:id/favourites', async (req, res) => {
+  const userId = req.session.currentUser._id;
+  const user = await User.findByIdAndUpdate(userId, {
+    $push: { favoriteRecipes: req.params.id }
+  });
+  //Update usser and push the recipe id to favoriteRecipes
+  res.redirect('/recipes/favourites');
 });
 
 //http://localhost/books/edit -> right

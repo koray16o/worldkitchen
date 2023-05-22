@@ -67,6 +67,7 @@
                 Recipes</a>
             </li>
             {{#unless currentUser}}
+<<<<<<< HEAD
               <li class='nav-item'>
                 <a
                   class='nav-link active'
@@ -90,6 +91,31 @@
                 <a href='/recipes'>{{currentUser.username}}´s favourite recipes</a>
               {{/if}}
             </li>
+=======
+            <li class='nav-item'>
+              <a class='nav-link active' aria-current='page' href='/signup'>Sign
+                up</a>
+            </li>
+            <li class='nav-item'>
+              <a
+                class='nav-link active'
+                aria-current='page'
+                href='/login'
+              >Login</a>
+            </li>
+            {{/unless}}
+            <li class='nav-item-favourites'>
+              <a class="nav-link active" aria-current="page" href="/recipes/favourite">
+              {{#if currentUser}}
+                <p>{{currentUser.username}}'s
+                  favourite recipes</p></a>
+              {{/if}}
+            </li>
+            <li class='nav-item-title'>
+              <a class='nav-link disabled'>WORLD KITCHEN</a>
+            </li>
+            
+>>>>>>> 6ed0641d2d2e94499d8cd2f073b9f80de5dd72d1
             <li class='nav-item-logout'>
               {{#if currentUser}}
                 <form action='/logout' method='POST'>
