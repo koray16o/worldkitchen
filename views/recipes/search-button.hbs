@@ -1,0 +1,10 @@
+<h2>Search Results for "{{searchQuery}}"</h2>
+{{#if recipes.length}}
+  <ul>
+    {{#each recipes}}
+      <li>{{title}}</li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No results found.</p>
+{{/if}}

@@ -22,7 +22,6 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-//Getting the recipes
 router.get('/recipes', async (req, res) => {
   const recipesFromDB = await Recipe.find();
   res.render('recipes/recipe-list', { recipes: recipesFromDB });
@@ -164,6 +163,36 @@ router.post('/reviews/add/:id', async (req, res) => {
   });
   res.redirect(`/recipes/${req.params.id}`);
 });
+
+/* router.get('/recipes/search', async (req, res) => {
+  const recipes = await Recipe.find({
+    title: req.body.search
+  }); 
+  res.render('recipes/search-button', { recipes });
+}); */
+
+/* router.post('/recipes/search', async (req, res) => {
+  await Recipe.find({ title: req.body.title });
+  res.redirect('/recipes/search');
+}); */
+
+/* router.get('/recipes/search', async (req, res) => {
+  const searchQuery = req.query.search;
+  const recipes = await Recipe.find({
+    title: { $regex: searchQuery, $options: '_id' }
+  });
+  res.render('recipes/search-button', { recipes, searchQuery });
+}); */
+
+/* router.get('/recipes/search', async (req, res) => {
+  const searchQuery = req.query.search;
+
+  const recipes = await Recipe.find({
+    title: { $regex: searchQuery, $options: 'i' }
+  });
+
+  res.render('recipes/search-button', { recipes, searchQuery });
+}); */
 
 module.exports = router;
 

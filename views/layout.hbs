@@ -98,12 +98,17 @@
               {{/if}}
             </li>
           </ul>
-          <form class='d-flex' role='search'>
+          <form
+            class='d-flex'
+            role='search'
+            action='/recipes/search'
+            method='GET'
+          >
             <input
               class='form-control me-2'
               name='search'
-              type='search'
-              placeholder='Search recipes..'
+              type='text'
+              placeholder='Search...'
               aria-label='Search'
               id='searchbar'
             />
