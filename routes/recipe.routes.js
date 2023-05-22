@@ -21,12 +21,6 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-/* function searchRecipe(req, res) {
-  let input = document.getElementById("searchbar").value
-  input = input.toLowerCase()
-  let x = document.get
-} */
-
 //Getting the books
 router.get('/recipes', async (req, res) => {
   const recipesFromDB = await Recipe.find();
@@ -138,7 +132,37 @@ router.post('/reviews/add/:id', async (req, res) => {
   res.redirect(`/recipes/${req.params.id}`);
 });
 
-module.exports = router;
+/* router.get('/recipes/search', async (req, res) => {
+  const recipes = await Recipe.find({
+    title: req.body.search
+  }); 
+  res.render('recipes/search-button', { recipes });
+}); */
+
+/* router.post('/recipes/search', async (req, res) => {
+  await Recipe.find({ title: req.body.title });
+  res.redirect('/recipes/search');
+}); */
+
+/* router.get('/recipes/search', async (req, res) => {
+  const searchQuery = req.query.search;
+  const recipes = await Recipe.find({
+    title: { $regex: searchQuery, $options: '_id' }
+  });
+  res.render('recipes/search-button', { recipes, searchQuery });
+}); */
+
+/* router.get('/recipes/search', async (req, res) => {
+  const searchQuery = req.query.search;
+
+  const recipes = await Recipe.find({
+    title: { $regex: searchQuery, $options: 'i' }
+  });
+
+  res.render('recipes/search-button', { recipes, searchQuery });
+});
+
+module.exports = router; */
 
 //http:localhost:3000/books?id=2 req.query
 //http:localhost:3000/books/2 req.params

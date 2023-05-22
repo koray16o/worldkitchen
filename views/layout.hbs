@@ -66,25 +66,30 @@
               <a class='nav-link active' aria-current='page' href='/recipes'>All
                 Recipes</a>
             </li>
-            <li class='nav-item'>
-              <a class='nav-link active' aria-current='page' href='/signup'>Sign
-                up</a>
-            </li>
-            <li class='nav-item'>
-              <a
-                class='nav-link active'
-                aria-current='page'
-                href='/login'
-              >Login</a>
-            </li>
+            {{#unless currentUser}}
+              <li class='nav-item'>
+                <a
+                  class='nav-link active'
+                  aria-current='page'
+                  href='/signup'
+                >Sign up</a>
+              </li>
+              <li class='nav-item'>
+                <a
+                  class='nav-link active'
+                  aria-current='page'
+                  href='/login'
+                >Login</a>
+              </li>
+            {{/unless}}
             <li class='nav-item-title'>
               <a class='nav-link disabled'>WORLD KITCHEN</a>
             </li>
-            {{!-- <li>
+            <li>
               {{#if currentUser}}
-                <p>Welcome {{currentUser.username}}!</p>
+                <a href='/recipes'>{{currentUser.username}}´s favourite recipes</a>
               {{/if}}
-            </li> --}}
+            </li>
             <li class='nav-item-logout'>
               {{#if currentUser}}
                 <form action='/logout' method='POST'>
@@ -93,12 +98,17 @@
               {{/if}}
             </li>
           </ul>
-          <form class='d-flex' role='search'>
+          <form
+            class='d-flex'
+            role='search'
+            action='/recipes/search'
+            method='GET'
+          >
             <input
               class='form-control me-2'
               name='search'
-              type='search'
-              placeholder='Search recipes..'
+              type='text'
+              placeholder='Search...'
               aria-label='Search'
               id='searchbar'
             />
