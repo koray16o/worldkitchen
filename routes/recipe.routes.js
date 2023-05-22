@@ -32,22 +32,29 @@ router.get('/recipes/create', async (req, res) => {
   const region = await Region.find();
   res.render('recipes/recipe-create', { region });
 });
+
 router.get('/recipes/favourite', async (req, res) => {
   const userId = req.session.currentUser._id;
-  const user = await User.findById(userId).populate('favoriteRecipes');
-  console.log(user);
+  const user = await User.findById(userId).populate('favouriteRecipes');
+
   res.render('recipes/recipe-favourites', {
-    favoriteRecipes: user.favoriteRecipes
+    favouriteRecipes: user.favouriteRecipes
   });
 });
 
 router.post('/recipe/:id/favourites', async (req, res) => {
   const userId = req.session.currentUser._id;
+  const userToCheck = await User.findById(userId);
+
+  if (userToCheck.favouriteRecipes.includes(req.params.id)) {
+    res.redirect('/recipes/favourite');
+    return;
+  }
   const user = await User.findByIdAndUpdate(userId, {
-    $push: { favoriteRecipes: req.params.id }
+    $push: { favouriteRecipes: req.params.id }
   });
   //Update usser and push the recipe id to favoriteRecipes
-  res.redirect('/recipes/favourites');
+  res.redirect('/recipes/favourite');
 });
 
 //http://localhost/books/edit -> right
@@ -137,6 +144,14 @@ router.post('/recipes/delete/:id', async (req, res) => {
   //Remember to add isAdmin when presenting project
   await Recipe.findByIdAndDelete(req.params.id);
   res.redirect('/');
+});
+router.post('/recipes/favourite/delete/:id', async (req, res) => {
+  //CHECK HOW TO DELETE A RECIPE FROM FAVOURITES LIST WITHOUT DELETING IT FROM THE REGION LIST
+  const userId = req.session.currentUser._id;
+  await User.findByIdAndUpdate(userId, {
+    $pull: { favouriteRecipes: req.params.id }
+  });
+  res.redirect('/recipes/favourite');
 });
 
 router.post('/reviews/add/:id', async (req, res) => {
