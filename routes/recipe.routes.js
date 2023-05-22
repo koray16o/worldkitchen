@@ -22,11 +22,6 @@ function isAuthenticated(req, res, next) {
   }
 }
 
-<<<<<<< HEAD
-//Getting the books
-=======
-//Getting the recipes
->>>>>>> 6ed0641d2d2e94499d8cd2f073b9f80de5dd72d1
 router.get('/recipes', async (req, res) => {
   const recipesFromDB = await Recipe.find();
   res.render('recipes/recipe-list', { recipes: recipesFromDB });
@@ -182,9 +177,9 @@ router.post('/reviews/add/:id', async (req, res) => {
   });
 
   res.render('recipes/search-button', { recipes, searchQuery });
-});
+}); */
 
-module.exports = router; */
+module.exports = router;
 
 //http:localhost:3000/books?id=2 req.query
 //http:localhost:3000/books/2 req.params
