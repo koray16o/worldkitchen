@@ -1,8 +1,10 @@
 <h2>Search Results for "{{searchQuery}}"</h2>
-{{#if recipes.length}}
+{{#if recipes}}
   <ul>
     {{#each recipes}}
-      <li>{{title}}</li>
+      {{#if this}}
+        <li>{{title}}</li>
+      {{/if}}
     {{/each}}
   </ul>
 {{else}}

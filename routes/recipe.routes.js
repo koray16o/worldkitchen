@@ -173,11 +173,34 @@ router.post('/reviews/add/:id', async (req, res) => {
   const searchQuery = req.query.search;
 
   const recipes = await Recipe.find({
-    title: { $regex: searchQuery, $options: 'i' }
+    title: searchQuery
   });
+const arrayOfRecipes = recipes.map()
+arrayOfRecipes.startsWith()
+
 
   res.render('recipes/search-button', { recipes, searchQuery });
 }); */
+
+router.post('/recipes/search', async (req, res) => {
+  const searchQuery = req.body.search;
+  console.log(req.query);
+  console.log('________________________________________');
+  const recipes = await Recipe.find().populate('region comment');
+
+  const filteredRecipes = recipes.map(recipe => {
+    if (recipe.title.toLowerCase().startsWith(searchQuery.toLowerCase())) {
+      return recipe;
+    } else {
+      return;
+    }
+  });
+  console.log(filteredRecipes);
+  res.render('recipes/search-button', {
+    recipes: filteredRecipes,
+    searchQuery
+  });
+});
 
 module.exports = router;
 
