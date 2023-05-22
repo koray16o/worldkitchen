@@ -22,7 +22,7 @@ const userSchema = new Schema(
     role: {
       type: String
     },
-    favoriteRecipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }]
+    favouriteRecipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
