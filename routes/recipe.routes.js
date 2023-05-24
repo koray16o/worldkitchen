@@ -27,7 +27,7 @@ router.get('/recipes', async (req, res) => {
   res.render('recipes/recipe-list', { recipes: recipesFromDB });
 });
 
-router.get('/recipes/create', async (req, res) => {
+router.get('/recipes/create', isAdmin, async (req, res) => {
   //Remember to add isAdmin when presenting project
   const region = await Region.find();
   res.render('recipes/recipe-create', { region });
@@ -57,19 +57,14 @@ router.post('/recipe/:id/favourites', async (req, res) => {
   res.redirect('/recipes/favourite');
 });
 
-//http://localhost/books/edit -> right
-//http://localhost/book-edit -> wrong
-//Get the view to edit the book
-router.get('/recipes/:id/edit', async (req, res) => {
+router.get('/recipes/:id/edit', isAdmin, async (req, res) => {
   //Remember to add isAdmin when presenting project
   const recipe = await Recipe.findById(req.params.id);
   const region = await Region.find();
-  //Name of the edit(file of hbs)
   res.render('recipes/recipe-edit', { recipe, region });
 });
 
 router.post('/recipes/create', fileUpload.array('files'), async (req, res) => {
-  console.log(req);
   let fileUrlOnCloudinary = [];
   if (req.files) {
     fileUrlOnCloudinary = req.files.map(file => file.path);
@@ -140,7 +135,7 @@ router.get('/recipes/:id', async (req, res) => {
   res.render('recipes/recipe-details', recipes);
 });
 
-router.post('/recipes/delete/:id', async (req, res) => {
+router.post('/recipes/delete/:id', isAdmin, async (req, res) => {
   //Remember to add isAdmin when presenting project
   await Recipe.findByIdAndDelete(req.params.id);
   res.redirect('/');
@@ -154,7 +149,7 @@ router.post('/recipes/favourite/delete/:id', async (req, res) => {
   res.redirect('/recipes/favourite');
 });
 
-router.post('/reviews/add/:id', async (req, res) => {
+router.post('/reviews/add/:id', isAuthenticated, async (req, res) => {
   //Remember to add isAuthenticated when presenting project
   const { user, comment } = req.body;
   console.log(req.body);
@@ -185,7 +180,3 @@ router.post('/recipes/search', async (req, res) => {
 });
 
 module.exports = router;
-
-//http:localhost:3000/books?id=2 req.query
-//http:localhost:3000/books/2 req.params
-//req.body you dont see it, its in the body
