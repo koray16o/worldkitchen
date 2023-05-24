@@ -1,32 +1,32 @@
 <div class='recipe-details'>
   <h1>{{title}}</h1>
-  <div class='image'>
-    {{#if imageUrl}}
-
-      {{#each imageUrl}}
-        <div class='image'>
-          <img src='{{this}}' width='100px' />
-        </div>
-
-      {{/each}}
-
-    {{/if}}
-
-  </div>
 
   <hr />
   <p>Country: {{country}}</p>
+  <div class='image'>
+    <span>
+      {{#if imageUrl}}
 
-  <p>Ingredients:
+        {{#each imageUrl}}
+          <div class='image'>
+            <img src='{{this}}' width='300px' />
+          </div>
 
-    {{#each ingredients}}
-      <ul>
-        <li class='ingredient'>{{this}}</li>
-      </ul>
+        {{/each}}
 
-    {{/each}}
+      {{/if}}
+    </span>
+    <span>Ingredients:
 
-  </p>
+      {{#each ingredients}}
+        <ul>
+          <li class='ingredient'>{{this}}</li>
+        </ul>
+
+      {{/each}}
+
+    </span>
+  </div>
 
   <p>Difficulty: {{difficulty}}</p>
   <p>Preparation Time: {{preparationTime}}</p>

@@ -131,3 +131,7 @@ body {
 .favourites-background {
   background-color: wheat;
 }
+.image {
+  display: flex;
+  justify-content: space-between;
+}
